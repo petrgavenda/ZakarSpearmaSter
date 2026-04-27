@@ -66,3 +66,6 @@ Additionally, make sure that the following extensions are enabled in your PHP:
 - json (enabled by default - don't turn it off)
 - [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
 - [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+
+  Databáze hesel, hešovacích algoritmů, webů ze kterých leaknuli a lidí co je objevily
+  Tabulka: Hash cracker, generátor nebezpečných hesel, optional: analýza bezepčnosti hesla
