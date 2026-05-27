@@ -1,50 +1,52 @@
-insert into website (ip_address, company) values ('32.216.89.159', 'Nlounge');
-insert into website (ip_address, company) values ('6.56.162.20', 'Browseblab');
-insert into website (ip_address, company) values ('108.28.222.221', 'Zooxo');
-insert into website (ip_address, company) values ('246.41.152.118', 'Realcube');
-insert into website (ip_address, company) values ('29.122.184.36', 'Twitterbeat');
-insert into website (ip_address, company) values ('137.169.180.171', 'Livepath');
-insert into website (ip_address, company) values ('147.176.162.155', 'Twinte');
-insert into website (ip_address, company) values ('82.201.80.24', 'Kwimbee');
-insert into website (ip_address, company) values ('164.220.191.115', 'Browsezoom');
-insert into website (ip_address, company) values ('129.218.90.168', 'Jabbersphere');
-insert into website (ip_address, company) values ('111.44.99.40', 'Thoughtsphere');
-insert into website (ip_address, company) values ('184.250.54.91', 'Yozio');
-insert into website (ip_address, company) values ('53.94.209.3', 'Ailane');
-insert into website (ip_address, company) values ('188.183.56.126', 'Realbridge');
-insert into website (ip_address, company) values ('207.175.220.61', 'Bubblebox');
-insert into website (ip_address, company) values ('26.186.201.7', 'Mita');
-insert into website (ip_address, company) values ('188.45.151.5', 'Kazu');
-insert into website (ip_address, company) values ('187.117.136.59', 'Skinder');
-insert into website (ip_address, company) values ('198.205.59.231', 'InnoZ');
-insert into website (ip_address, company) values ('166.179.95.185', 'Thoughtstorm');
-insert into website (ip_address, company) values ('248.244.209.141', 'Rhynoodle');
-insert into website (ip_address, company) values ('130.32.243.131', 'Feedfire');
-insert into website (ip_address, company) values ('135.5.51.219', 'Meemm');
-insert into website (ip_address, company) values ('99.146.194.31', 'Yakidoo');
-insert into website (ip_address, company) values ('37.227.57.112', 'Oyope');
-insert into website (ip_address, company) values ('52.195.205.24', 'Realcube');
-insert into website (ip_address, company) values ('60.197.244.236', 'Voolith');
-insert into website (ip_address, company) values ('160.31.168.185', 'Demivee');
-insert into website (ip_address, company) values ('60.250.22.36', 'Bubblebox');
-insert into website (ip_address, company) values ('135.1.171.78', 'Dazzlesphere');
-insert into website (ip_address, company) values ('41.172.33.78', 'Wikizz');
-insert into website (ip_address, company) values ('169.225.92.254', 'Einti');
-insert into website (ip_address, company) values ('227.93.57.85', 'Demimbu');
-insert into website (ip_address, company) values ('87.25.85.68', 'Jetpulse');
-insert into website (ip_address, company) values ('75.171.167.104', 'Kimia');
-insert into website (ip_address, company) values ('120.164.60.131', 'Topiclounge');
-insert into website (ip_address, company) values ('51.194.59.89', 'Wikido');
-insert into website (ip_address, company) values ('173.227.207.141', 'Twiyo');
-insert into website (ip_address, company) values ('112.167.230.137', 'Skynoodle');
-insert into website (ip_address, company) values ('210.47.176.186', 'Fliptune');
-insert into website (ip_address, company) values ('13.225.140.45', 'Bubblemix');
-insert into website (ip_address, company) values ('29.43.58.223', 'Mydeo');
-insert into website (ip_address, company) values ('227.80.171.200', 'Edgetag');
-insert into website (ip_address, company) values ('160.217.173.72', 'Myworks');
-insert into website (ip_address, company) values ('202.233.6.134', 'Photojam');
-insert into website (ip_address, company) values ('180.71.221.140', 'Kwideo');
-insert into website (ip_address, company) values ('129.188.159.100', 'Kimia');
-insert into website (ip_address, company) values ('52.149.250.137', 'Geba');
-insert into website (ip_address, company) values ('180.207.90.160', 'Shuffledrive');
-insert into website (ip_address, company) values ('52.58.254.83', 'Meembee');
+INSERT INTO website (ip_address, company) VALUES
+
+ ('32.216.89.159', 'Nlounge'),
+ ('6.56.162.20', 'Browseblab'),
+ ('108.28.222.221', 'Zooxo'),
+ ('246.41.152.118', 'Realcube'),
+ ('29.122.184.36', 'Twitterbeat'),
+ ('137.169.180.171', 'Livepath'),
+ ('147.176.162.155', 'Twinte'),
+ ('82.201.80.24', 'Kwimbee'),
+ ('164.220.191.115', 'Browsezoom'),
+ ('129.218.90.168', 'Jabbersphere'),
+ ('111.44.99.40', 'Thoughtsphere'),
+ ('184.250.54.91', 'Yozio'),
+ ('53.94.209.3', 'Ailane'),
+ ('188.183.56.126', 'Realbridge'),
+ ('207.175.220.61', 'Bubblebox'),
+ ('26.186.201.7', 'Mita'),
+ ('188.45.151.5', 'Kazu'),
+ ('187.117.136.59', 'Skinder'),
+ ('198.205.59.231', 'InnoZ'),
+ ('166.179.95.185', 'Thoughtstorm'),
+ ('248.244.209.141', 'Rhynoodle'),
+ ('130.32.243.131', 'Feedfire'),
+ ('135.5.51.219', 'Meemm'),
+ ('99.146.194.31', 'Yakidoo'),
+ ('37.227.57.112', 'Oyope'),
+ ('52.195.205.24', 'Realcube'),
+ ('60.197.244.236', 'Voolith'),
+ ('160.31.168.185', 'Demivee'),
+ ('60.250.22.36', 'Bubblebox'),
+ ('135.1.171.78', 'Dazzlesphere'),
+ ('41.172.33.78', 'Wikizz'),
+ ('169.225.92.254', 'Einti'),
+ ('227.93.57.85', 'Demimbu'),
+ ('87.25.85.68', 'Jetpulse'),
+ ('75.171.167.104', 'Kimia'),
+ ('120.164.60.131', 'Topiclounge'),
+ ('51.194.59.89', 'Wikido'),
+ ('173.227.207.141', 'Twiyo'),
+ ('112.167.230.137', 'Skynoodle'),
+ ('210.47.176.186', 'Fliptune'),
+ ('13.225.140.45', 'Bubblemix'),
+ ('29.43.58.223', 'Mydeo'),
+ ('227.80.171.200', 'Edgetag'),
+ ('160.217.173.72', 'Myworks'),
+ ('202.233.6.134', 'Photojam'),
+ ('180.71.221.140', 'Kwideo'),
+ ('129.188.159.100', 'Kimia'),
+ ('52.149.250.137', 'Geba'),
+ ('180.207.90.160', 'Shuffledrive'),
+ ('52.58.254.83', 'Meembee');

@@ -1,4 +1,4 @@
-INSERT INTO hash_function (name, min_length, max_length, type) VALUES
+INSERT INTO hashing_function (name, min_length, max_length, type) VALUES
 ('MD5', 32, 32, 'Merkle-Damgård'),
 ('RIPEMD-160', 40, 40, 'Merkle-Damgård'),
 ('SHA-256', 64, 64, 'Merkle-Damgård'),
