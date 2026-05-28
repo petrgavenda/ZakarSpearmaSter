@@ -1,4 +1,4 @@
-INSERT INTO website_has_hashing_function (website_id, hash_function_id) VALUES
+INSERT INTO website_has_hashing_function (website_id, hashing_function_id) VALUES
 
 (1,1),(1,3),
 (2,3),(2,5),
