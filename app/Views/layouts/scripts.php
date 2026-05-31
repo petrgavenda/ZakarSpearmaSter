@@ -1,0 +1,1 @@
+<script src="<?= base_url('vendor/bootstrap/dist/js/bootstrap.bundle.min.js') ?>"></script>
