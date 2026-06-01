@@ -20,12 +20,14 @@
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">
                     <?php if($person->profile_picture): ?>
-                        <img src="/uploads/profiles/<?= esc($person->profile_picture) ?>" class="card-img-top" alt="Profil">
+                        <div class="ratio ratio-1x1">
+                            <img src="<?= base_url('uploads/profiles/' . $person->profile_picture) ?>" class="card-img-top object-fit-cover" alt="Profil">
+                        </div>
                     <?php endif; ?>
                     
                     <div class="card-body">
                         <h5 class="card-title"><?= esc($person->firstname) ?> <?= esc($person->lastname) ?></h5>
-                        <p class="card-text text-muted">Narozen: <?= esc($person->born) ?></p>
+                        <p class="card-text text-muted">Narozen/a: <?= esc($person->born) ?></p>
                         
                         <div class="d-flex justify-content-between">
                             <a href="<?= base_url('edit/' . $person->id) ?>" class="btn btn-sm btn-outline-secondary">Upravit</a>

@@ -15,7 +15,7 @@
         <h2 class="mb-0">Přidat novou osobu</h2>
     </div>
     <div class="card-body">
-        <form action="/store" method="post" enctype="multipart/form-data">
+        <form action="<?= base_url('store') ?>" method="post" enctype="multipart/form-data">
             
             <div class="row">
                 <div class="col-md-6 mb-3">

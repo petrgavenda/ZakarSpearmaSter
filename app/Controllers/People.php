@@ -56,13 +56,13 @@ class People extends BaseController
             $newName = $file->getRandomName();
             $file->move(FCPATH . 'uploads/profiles' . $newName);
 
-            $data['profile_picture'] = $newName;
+            $data['profile_picture'] = $newName; 
         }
 
         if($this->peopleModel->insert($data)){
-            return redirect()->to('people')->with('success', 'Osoba byla úspěšně vytvořena.');
+            return redirect()->to(base_url())->with('success', 'Osoba byla úspěšně vytvořena.');
         }else{
-            return redirect()->to('people')->with('error', 'Osoba nebyla vytvořena.');
+            return redirect()->back()->withInput()->with('error', 'Osoba nebyla vytvořena.');
         }
     }
 }
