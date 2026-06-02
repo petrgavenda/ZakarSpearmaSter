@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label for="born" class="form-label">Datum narození *</label>
-                    <input type="date" class="form-control" id="born" name="born" value="<?= set_value('born', $person->born) ?>" required>
+                    <input type="date" class="form-control" id="born" name="born" value="<?= set_value('born', date('Y-m-d', strtotime($person->born))) ?>" required>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label for="profile_picture" class="form-label">Profilová fotka</label>
