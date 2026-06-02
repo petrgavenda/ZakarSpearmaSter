@@ -30,10 +30,31 @@
                         <p class="card-text text-muted">Narozen/a: <?= date('Y-m-d', strtotime($person->born)) ?> </p>
                         
                         <div class="d-flex justify-content-between">
-                            <a href="<?= base_url('edit/' . $person->id) ?>" class="btn btn-sm btn-outline-secondary">Upravit</a>
-                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?= $person->id ?>">
+                            <a href="<?= base_url('edit/' . $person->id) ?>" class="btn btn-sm btn-dark"><span class="text-white">Upravit</span></a>
+                            
+                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $person->id ?>">
                                 Smazat
                             </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="deleteModal<?= $person->id ?>" tabindex="-1" aria-labelledby="deleteModalLabel<?= $person->id ?>" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel<?= $person->id ?>">Potvrzení smazání</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Zavřít"></button>
+                        </div>
+                        <div class="modal-body">
+                            Opravdu chcete smazat osobu <strong><?= esc($person->firstname) ?> <?= esc($person->lastname) ?></strong>?
+                        </div>
+                        <div class="modal-footer">
+                            <form action="<?= base_url('delete/' . $person->id) ?>" method="post">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zrušit</button>
+                                <button type="submit" class="btn btn-danger">Ano, smazat</button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -44,8 +65,8 @@
     <?php endif; ?>
 </div>
 
-<div class="d-flex justify-content-center mt-4">
-    <?= $pager->links() ?>
+<div class="mt-4">
+    <?= $pager->links('default', 'bootstrap') ?>
 </div>
 
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
@@ -68,17 +89,4 @@
   </div>
 </div>
 
-<?= $this->endSection() ?>
-
-<?= $this->section('scripts') ?>
-<script>
-    var deleteModal = document.getElementById('deleteModal');
-    deleteModal.addEventListener('show.bs.modal', function (event) {
-        var button = event.relatedTarget;
-        var id = button.getAttribute('data-id'); 
-        
-        var form = document.getElementById('deleteForm');
-        form.action = '/search_people/delete/' + id;
-    });
-</script>
 <?= $this->endSection() ?>

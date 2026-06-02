@@ -32,10 +32,10 @@ class People extends BaseController
         if($person){
             $this->peopleModel->delete($id);
 
-            return redirect()->to('people')->with('success', 'Osoba byla úspěšně smazána.');
+            return redirect()->to(base_url())->with('success', 'Osoba byla úspěšně smazána.');
         }
 
-        return redirect()->to('people')->with('error', 'Osoba nebyla smazána.');
+        return redirect()->to(base_url())->with('error', 'Osoba nebyla smazána.');
     }
 
     public function create(){
@@ -63,6 +63,52 @@ class People extends BaseController
             return redirect()->to(base_url())->with('success', 'Osoba byla úspěšně vytvořena.');
         }else{
             return redirect()->back()->withInput()->with('error', 'Osoba nebyla vytvořena.');
+        }
+    }
+
+    public function edit($id){
+        helper('form');
+
+        $person = $this->peopleModel->find($id);
+
+        if(!$person){
+            return redirect()->to(base_url())->with('error', 'Osoba nebyla nalezena.');
+        }
+
+        return view('edit', ['person' => $person]);
+    }
+
+    public function update($id){
+        $person = $this->peopleModel->find($id);
+
+        if(!$person){
+            return redirect()->to(base_url())->with('error', 'Osoba nebyla nalezena.');
+        }
+
+        $data = [
+            'firstname' => $this->request->getPost('firstname'),
+            'lastname' => $this->request->getPost('lastname'),
+            'born' => $this->request->getPost('born'),
+            'biography' => $this->request->getPost('biography'),
+        ];
+
+        $file = $this->request->getFile('profile_picture');
+
+        if($file && $file->isValid() && !$file->hasMoved()){
+            $newName = $file->getRandomName();
+            $file->move(FCPATH . 'uploads/profiles', $newName);
+
+            if($person['profile_picture']){
+                unlink(FCPATH . 'uploads/profiles/' . $person['profile_picture']);
+            }
+
+            $data['profile_picture'] = $newName; 
+        }
+
+        if($this->peopleModel->update($id, $data)){
+            return redirect()->to(base_url())->with('success', 'Osoba byla úspěšně aktualizována.');
+        }else{
+            return redirect()->back()->withInput()->with('error', 'Osoba nebyla aktualizována.');
         }
     }
 }
