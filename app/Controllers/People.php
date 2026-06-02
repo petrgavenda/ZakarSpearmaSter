@@ -54,7 +54,7 @@ class People extends BaseController
 
         if($file && $file->isValid() && !$file->hasMoved()){
             $newName = $file->getRandomName();
-            $file->move(FCPATH . 'uploads/profiles' . $newName);
+            $file->move(FCPATH . 'uploads/profiles', $newName);
 
             $data['profile_picture'] = $newName; 
         }

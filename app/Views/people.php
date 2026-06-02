@@ -27,7 +27,7 @@
                     
                     <div class="card-body">
                         <h5 class="card-title"><?= esc($person->firstname) ?> <?= esc($person->lastname) ?></h5>
-                        <p class="card-text text-muted">Narozen/a: <?= esc($person->born) ?></p>
+                        <p class="card-text text-muted">Narozen/a: <?= date('Y-m-d', strtotime($person->born)) ?> </p>
                         
                         <div class="d-flex justify-content-between">
                             <a href="<?= base_url('edit/' . $person->id) ?>" class="btn btn-sm btn-outline-secondary">Upravit</a>

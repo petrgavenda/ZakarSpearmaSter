@@ -34,13 +34,13 @@
                     <input type="date" class="form-control" id="born" name="born" required>
                 </div>
                 <div class="col-md-6 mb-3">
-                    <label for="profile_picture" class="form-label">Profilová fotka (Upload)</label>
+                    <label for="profile_picture" class="form-label">Profilová fotka</label>
                     <input type="file" class="form-control" id="profile_picture" name="profile_picture" accept="image/*">
                 </div>
             </div>
 
             <div class="mb-3">
-                <label for="biography" class="form-label">Biografie (WYSIWYG)</label>
+                <label for="biography" class="form-label">Biografie</label>
                 <textarea class="form-control" id="biography" name="biography" rows="5"></textarea>
             </div>
 
