@@ -16,10 +16,8 @@ class People extends BaseController
 
     public function index()
     {
-        $limit = env('PAGINATION_LIMIT', 12);
-
         $data = [
-            'people' => $this->peopleModel->paginate($limit),
+            'people' => $this->peopleModel->paginate(),
             'pager' => $this->peopleModel->pager,
         ];
 

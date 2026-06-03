@@ -11,7 +11,34 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
         <div class="container">
+            
             <a class="navbar-brand" href="/">Hash</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Rozbalit navigaci">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                
+                <ul class="navbar-nav me-auto">
+                    </ul>
+
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <?php if (auth()->loggedIn()): ?>
+                        <li class="nav-item">
+                            <a class="nav-link text-danger" href="<?= base_url('logout') ?>">Odhlásit se</a>
+                        </li>
+                    <?php else: ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= base_url('login') ?>">Přihlásit se</a>
+                        </li>
+                        <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
+                            <a class="nav-link btn px-3" href="<?= base_url('register') ?>">Registrace</a>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+                
+            </div>
         </div>
     </nav>
 

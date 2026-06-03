@@ -11,7 +11,9 @@
 
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Seznam osob</h1>
-    <a href="<?= base_url('create') ?>" class="btn btn-primary">Přidat osobu</a>
+    <?php if(auth()->loggedIn() && auth()->user()->inGroup('admin')): ?> 
+        <a href="<?= base_url('create') ?>" class="btn btn-primary">Přidat osobu</a>
+    <?php endif; ?>
 </div>
 
 <div class="row">
@@ -28,7 +30,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><?= esc($person->firstname) ?> <?= esc($person->lastname) ?></h5>
                         <p class="card-text text-muted">Narozen/a: <?= date('Y-m-d', strtotime($person->born)) ?> </p>
-                        
+                    <?php if(auth()->loggedIn() && auth()->user()->inGroup('admin')): ?>    
                         <div class="d-flex justify-content-between">
                             <a href="<?= base_url('edit/' . $person->id) ?>" class="btn btn-sm btn-dark"><span class="text-white">Upravit</span></a>
                             
@@ -36,6 +38,7 @@
                                 Smazat
                             </button>
                         </div>
+                    <?php endif; ?>
                     </div>
                 </div>
             </div>
