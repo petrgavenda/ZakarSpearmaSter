@@ -17,6 +17,10 @@ $routes->group('', ['filter' => 'group:admin'], static function($routes){
     $routes->post('delete/(:num)', 'People::delete/$1');
 });
 
+$routes->get('passwords/create', 'Password::create');
+$routes->get('passwords', 'Password::index');
+$routes->post('passwords/store', 'Password::store');
+
 
 
 

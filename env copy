@@ -1,0 +1,25 @@
+#--------------------------------------------------------------------
+# ENVIRONMENT (Nastavení prostředí)
+#--------------------------------------------------------------------
+# Zapne vývojářský režim (ukazuje detailní chybové hlášky)
+CI_ENVIRONMENT = development
+#--------------------------------------------------------------------
+# Stránkování (konfigurace)
+PER_PAGE_PEOPLE = 9
+PER_PAGE_PASSWORDS = 50   
+#--------------------------------------------------------------------
+# APP (Základní nastavení aplikace)
+#--------------------------------------------------------------------
+# Zde můžeš nastavit základní URL adresu svého projektu
+# app.baseURL = 'http://localhost/tvuj-projekt/public/'
+
+#--------------------------------------------------------------------
+# DATABASE (Připojení k databázi)
+#--------------------------------------------------------------------
+database.default.hostname = localhost
+database.default.database = zakarspearmaster  
+database.default.username = root
+database.default.password =                       
+database.default.DBDriver = MySQLi
+database.default.DBPrefix =
+database.default.port = 3306
