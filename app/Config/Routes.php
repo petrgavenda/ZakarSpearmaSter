@@ -20,6 +20,9 @@ $routes->group('', ['filter' => 'group:admin'], static function($routes){
 $routes->get('passwords/create', 'Password::create');
 $routes->get('passwords', 'Password::index');
 $routes->post('passwords/store', 'Password::store');
+$routes->get('passwords/filter/(:num)/(:num)', 'Password::filter/$1/$2');
+$routes->post('passwords/process-filter', 'Password::processFilter');
+$routes->get('passwords/statistics', 'Password::statistics');
 
 
 

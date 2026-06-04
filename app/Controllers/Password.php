@@ -34,7 +34,12 @@ class Password extends BaseController
 
         $pager = $this->passwordModel->pager;
 
-        return view('passwords/index', ['passwords' => $passwords, 'pager' => $pager]);
+        return view('passwords/index', [
+            'passwords' => $passwords, 
+            'pager' => $pager, 
+            'websites' => $this->websiteModel->findAll(), 
+            'people' => $this->peopleModel->findAll()
+        ]);
     }
     public function create()
     {
@@ -63,5 +68,55 @@ class Password extends BaseController
         $this->passwordModel->insert($data);
 
         return redirect()->to(base_url('passwords'))->with('success', 'Heslo bylo úspěšně zaznamenáno a zahašováno.');
+    }
+
+    public function statistics(){
+        $db = \Config\Database::connect();
+
+        $stats = $db->table('password')
+            ->select('search_people.firstname, search_people.lastname, COUNT(password.id) as total_discovered')
+            ->join('search_people', 'search_people.id = password.search_people_id', 'inner')
+            ->groupBy('search_people.id') 
+            ->orderBy('total_discovered', 'DESC') 
+            ->get()
+            ->getResult();
+
+        return view('passwords/statistics', ['stats' => $stats]);
+    }
+
+    public function filter($websiteId, $searchPeopleId){
+        $passwordModel = new \App\Models\Password();
+        $limit = env('PER_PAGE_PASSWORDS');
+
+        $passwords = $passwordModel->select('
+                password.id, 
+                password.text, 
+                website.company AS website_company, 
+                search_people.firstname AS finder_firstname, 
+                search_people.lastname AS finder_lastname
+            ')
+            ->join('website', 'website.id = password.website_id', 'left')
+            ->join('search_people', 'search_people.id = password.search_people_id', 'left')
+            ->where('password.website_id', $websiteId) 
+            ->where('password.search_people_id', $searchPeopleId) 
+            ->paginate($limit);
+
+        return view('passwords/index', [
+            'passwords' => $passwords,
+            'pager'     => $passwordModel->pager,
+            'websites'  => $this->websiteModel->findAll(),
+            'people'    => $this->peopleModel->findAll()
+        ]);
+    }
+    public function processFilter()
+    {
+        $websiteId = $this->request->getPost('website_id');
+        $personId = $this->request->getPost('search_people_id');
+
+        if (!$websiteId || !$personId) {
+            return redirect()->to('/passwords')->with('error', 'Musíte vybrat web i objevitele.');
+        }
+
+        return redirect()->to('/passwords/filter/' . $websiteId . '/' . $personId);
     }
 }
