@@ -95,7 +95,9 @@ class Password extends BaseController
                 password.text, 
                 website.company AS website_company, 
                 search_people.firstname AS finder_firstname, 
-                search_people.lastname AS finder_lastname
+                search_people.lastname AS finder_lastname,
+                website.id AS website_id,
+                search_people.id AS finder_id
             ')
             ->join('website', 'website.id = password.website_id', 'left')
             ->join('search_people', 'search_people.id = password.search_people_id', 'left')
