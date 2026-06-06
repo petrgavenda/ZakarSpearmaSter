@@ -4,15 +4,15 @@
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="<?= base_url() ?>" class="text-decoration-none">Domů</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Vyhledávání osob</li>
+        <li class="breadcrumb-item"><a href="<?= base_url() ?>">Domů</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Vyhledávání objevitelů</li>
     </ol>
 </nav>
 
 <div class="d-flex justify-content-between align-items-center mb-3">
-    <h1>Seznam osob</h1>
+    <h1>Seznam objevitelů</h1>
     <?php if(auth()->loggedIn() && auth()->user()->inGroup('admin')): ?> 
-        <a href="<?= base_url('people/create') ?>" class="btn btn-primary">Přidat osobu</a>
+        <a href="<?= base_url('people/create') ?>" class="btn btn-success">Přidat osobu</a>
     <?php endif; ?>
 </div>
 
@@ -21,24 +21,35 @@
         <?php foreach ($people as $person): ?>
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">
+                    
                     <?php if($person->profile_picture): ?>
-                        <div class="ratio ratio-1x1">
-                            <img src="<?= base_url('uploads/profiles/' . $person->profile_picture) ?>" class="card-img-top object-fit-cover" alt="Profil">
-                        </div>
+                        <a href="<?= base_url('people/show/' . $person->id) ?>" class="text-decoration-none">
+                            <div class="ratio ratio-1x1">
+                                <img src="<?= base_url('uploads/profiles/' . $person->profile_picture) ?>" class="card-img-top object-fit-cover" alt="Profil <?= esc($person->firstname) ?>">
+                            </div>
+                        </a>
                     <?php endif; ?>
                     
                     <div class="card-body">
-                        <h5 class="card-title"><?= esc($person->firstname) ?> <?= esc($person->lastname) ?></h5>
+                        <h5 class="card-title">
+                            <a href="<?= base_url('people/show/' . $person->id) ?>" class="text-dark text-decoration-none">
+                                <?= esc($person->firstname) ?> <?= esc($person->lastname) ?>
+                            </a>
+                        </h5>
+                        
                         <p class="card-text text-muted">Narozen/a: <?= date('Y-m-d', strtotime($person->born)) ?> </p>
-                    <?php if(auth()->loggedIn() && auth()->user()->inGroup('admin')): ?>    
-                        <div class="d-flex justify-content-between">
-                            <a href="<?= base_url('people/edit/' . $person->id) ?>" class="btn btn-sm btn-dark"><span class="text-white">Upravit</span></a>
-                            
-                            <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $person->id ?>">
-                                Smazat
-                            </button>
-                        </div>
-                    <?php endif; ?>
+                        
+                        <?php if(auth()->loggedIn() && auth()->user()->inGroup('admin')): ?>    
+                            <div class="d-flex justify-content-between">
+                                <a href="<?= base_url('people/edit/' . $person->id) ?>" class="btn btn-sm btn-dark">
+                                    <span class="text-white">Upravit</span>
+                                </a>
+                                
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $person->id ?>">
+                                    Smazat
+                                </button>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

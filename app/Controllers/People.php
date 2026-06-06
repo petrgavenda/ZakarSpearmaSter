@@ -111,4 +111,11 @@ class People extends BaseController
             return redirect()->back()->withInput()->with('error', 'Osoba nebyla aktualizována.');
         }
     }
+
+    public function show($id)
+    {
+        $person = $this->peopleModel->find($id);
+
+        return view('people/show', ['person' => $person]);
+    }
 }

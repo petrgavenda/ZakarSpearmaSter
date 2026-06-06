@@ -24,9 +24,11 @@ class Password extends BaseController
         $passwords = $this->passwordModel->select('
                 password.id, 
                 password.text, 
-                website.company AS website_company, 
+                website.company AS website_company,
+                website.id AS website_id,
                 search_people.firstname AS finder_firstname, 
-                search_people.lastname AS finder_lastname
+                search_people.lastname AS finder_lastname,
+                search_people.id AS finder_id
             ')
             ->join('website', 'website.id = password.website_id', 'left')
             ->join('search_people', 'search_people.id = password.search_people_id', 'left')

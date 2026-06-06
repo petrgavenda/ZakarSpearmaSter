@@ -1,6 +1,14 @@
 <?= $this->extend('layouts/layout') ?>
 
 <?= $this->section('content') ?>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= base_url() ?>">Domů</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Prolomená hesla</li>
+    </ol>
+</nav>
+
 <div class="container mt-5">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2>Seznam prolomených hesel</h2>
@@ -57,16 +65,20 @@
                             <tr>
                                 <td><?= $pass->id ?></td>
                                 <td>
-                                    <span class="badge bg-primary px-2 py-1">
-                                        <?= esc($pass->website_company ?? 'Neznámý web') ?>
-                                    </span>
+                                    <a href="<?= base_url('websites/show/' . $pass->website_id) ?>">
+                                        <span class="badge bg-primary px-2 py-1">
+                                            <?= esc($pass->website_company) ?>
+                                        </span>
+                                    </a>
                                 </td>
                                 <td>
                                     <code><?= esc($pass->text) ?></code>
                                 </td>
                                 <td>
                                     <?php if ($pass->finder_firstname): ?>
-                                        <?= esc($pass->finder_firstname) ?> <?= esc($pass->finder_lastname) ?>
+                                        <a href="<?= base_url('people/show/' . $pass->finder_id) ?>">
+                                            <?= esc($pass->finder_firstname) ?> <?= esc($pass->finder_lastname) ?>
+                                        </a>
                                     <?php else: ?>
                                         <span class="text-muted italic">Anonymní výzkumník</span>
                                     <?php endif; ?>

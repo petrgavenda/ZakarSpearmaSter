@@ -1,6 +1,15 @@
 <?= $this->extend('layouts/layout') ?>
 
 <?= $this->section('content') ?>
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="<?= base_url() ?>">Domů</a></li>
+        <li class="breadcrumb-item"><a href="<?= base_url('passwords') ?>">Prolomená hesla</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Přidat nové heslo</li>
+    </ol>
+</nav>
+
 <div class="container mt-5">
     <h2>Přidat nové heslo a vygenerovat hashe</h2>
     
