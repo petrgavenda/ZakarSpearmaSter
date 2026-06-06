@@ -73,17 +73,18 @@ class Password extends BaseController
     }
 
     public function statistics(){
-        $db = \Config\Database::connect();
+        $limit = env('PER_PAGE_STATISTICS');
 
-        $stats = $db->table('password')
-            ->select('search_people.firstname, search_people.lastname, COUNT(password.id) as total_discovered')
+        $stats = $this->passwordModel
+            ->select('search_people.firstname, search_people.lastname, COUNT(password.id) as total_discovered, search_people.id as finder_id')
             ->join('search_people', 'search_people.id = password.search_people_id', 'inner')
             ->groupBy('search_people.id') 
             ->orderBy('total_discovered', 'DESC') 
-            ->get()
-            ->getResult();
+            ->paginate($limit);
 
-        return view('passwords/statistics', ['stats' => $stats]);
+        $currentPage = $this->passwordModel->pager->getCurrentPage();
+
+        return view('passwords/statistics', ['stats' => $stats, 'currentPage' => $currentPage, 'limit' => $limit, 'pager' => $this->passwordModel->pager]);
     }
 
     public function filter($websiteId, $searchPeopleId){

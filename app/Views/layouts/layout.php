@@ -27,6 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="<?= base_url('passwords') ?>">Hesla</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('passwords/statistics') ?>">Nejlepší objevitelé</a>
+                    </li>
                 </ul>
 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
