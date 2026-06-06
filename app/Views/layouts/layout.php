@@ -20,8 +20,14 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 
-                <ul class="navbar-nav me-auto">
-                    </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('people') ?>">Objevitelé</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?= base_url('passwords') ?>">Hesla</a>
+                    </li>
+                </ul>
 
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
                     <?php if (auth()->loggedIn()): ?>
@@ -33,7 +39,7 @@
                             <a class="nav-link" href="<?= base_url('login') ?>">Přihlásit se</a>
                         </li>
                         <li class="nav-item ms-lg-2 mt-2 mt-lg-0">
-                            <a class="nav-link btn px-3" href="<?= base_url('register') ?>">Registrace</a>
+                            <a class="nav-link" href="<?= base_url('register') ?>">Registrace</a>
                         </li>
                     <?php endif; ?>
                 </ul>

@@ -12,7 +12,7 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h1>Seznam osob</h1>
     <?php if(auth()->loggedIn() && auth()->user()->inGroup('admin')): ?> 
-        <a href="<?= base_url('create') ?>" class="btn btn-primary">Přidat osobu</a>
+        <a href="<?= base_url('people/create') ?>" class="btn btn-primary">Přidat osobu</a>
     <?php endif; ?>
 </div>
 
@@ -32,7 +32,7 @@
                         <p class="card-text text-muted">Narozen/a: <?= date('Y-m-d', strtotime($person->born)) ?> </p>
                     <?php if(auth()->loggedIn() && auth()->user()->inGroup('admin')): ?>    
                         <div class="d-flex justify-content-between">
-                            <a href="<?= base_url('edit/' . $person->id) ?>" class="btn btn-sm btn-dark"><span class="text-white">Upravit</span></a>
+                            <a href="<?= base_url('people/edit/' . $person->id) ?>" class="btn btn-sm btn-dark"><span class="text-white">Upravit</span></a>
                             
                             <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $person->id ?>">
                                 Smazat
@@ -54,7 +54,7 @@
                             Opravdu chcete smazat osobu <strong><?= esc($person->firstname) ?> <?= esc($person->lastname) ?></strong>?
                         </div>
                         <div class="modal-footer">
-                            <form action="<?= base_url('delete/' . $person->id) ?>" method="post">
+                            <form action="<?= base_url('people/delete/' . $person->id) ?>" method="post">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Zrušit</button>
                                 <button type="submit" class="btn btn-danger">Ano, smazat</button>
                             </form>

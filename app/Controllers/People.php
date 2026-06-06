@@ -23,7 +23,7 @@ class People extends BaseController
             'pager' => $this->peopleModel->pager,
         ];
 
-        return view('people.php', $data);
+        return view('people/people', $data);
     }
 
     public function delete($id){
@@ -32,14 +32,14 @@ class People extends BaseController
         if($person){
             $this->peopleModel->delete($id);
 
-            return redirect()->to(base_url())->with('success', 'Osoba byla úspěšně smazána.');
+            return redirect()->to(base_url('people'))->with('success', 'Osoba byla úspěšně smazána.');
         }
 
-        return redirect()->to(base_url())->with('error', 'Osoba nebyla smazána.');
+        return redirect()->to(base_url('people'))->with('error', 'Osoba nebyla smazána.');
     }
 
     public function create(){
-        return view('create');
+        return view('people/create');
     }
 
     public function store(){
@@ -60,7 +60,7 @@ class People extends BaseController
         }
 
         if($this->peopleModel->insert($data)){
-            return redirect()->to(base_url())->with('success', 'Osoba byla úspěšně vytvořena.');
+            return redirect()->to(base_url('people'))->with('success', 'Osoba byla úspěšně vytvořena.');
         }else{
             return redirect()->back()->withInput()->with('error', 'Osoba nebyla vytvořena.');
         }
@@ -72,17 +72,17 @@ class People extends BaseController
         $person = $this->peopleModel->find($id);
 
         if(!$person){
-            return redirect()->to(base_url())->with('error', 'Osoba nebyla nalezena.');
+            return redirect()->to(base_url('people'))->with('error', 'Osoba nebyla nalezena.');
         }
 
-        return view('edit', ['person' => $person]);
+        return view('people/edit', ['person' => $person]);
     }
 
     public function update($id){
         $person = $this->peopleModel->find($id);
 
         if(!$person){
-            return redirect()->to(base_url())->with('error', 'Osoba nebyla nalezena.');
+            return redirect()->to(base_url('people'))->with('error', 'Osoba nebyla nalezena.');
         }
 
         $data = [
@@ -106,7 +106,7 @@ class People extends BaseController
         }
 
         if($this->peopleModel->update($id, $data)){
-            return redirect()->to(base_url())->with('success', 'Osoba byla úspěšně aktualizována.');
+            return redirect()->to(base_url('people'))->with('success', 'Osoba byla úspěšně aktualizována.');
         }else{
             return redirect()->back()->withInput()->with('error', 'Osoba nebyla aktualizována.');
         }

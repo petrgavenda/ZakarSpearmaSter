@@ -5,7 +5,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="<?= base_url() ?>">Domů</a></li>
-        <li class="breadcrumb-item"><a href="<?= base_url() ?>">Vyhledávání osob</a></li>
+        <li class="breadcrumb-item"><a href="<?= base_url('people') ?>">Vyhledávání osob</a></li>
         <li class="breadcrumb-item active" aria-current="page">Přidat osobu</li>
     </ol>
 </nav>
@@ -45,7 +45,7 @@
             </div>
 
             <div class="d-flex justify-content-end">
-                <a href="<?= base_url() ?>" class="btn btn-secondary me-2">Zrušit</a>
+                <a href="<?= base_url('people') ?>" class="btn btn-secondary me-2">Zrušit</a>
                 <button type="submit" class="btn btn-success">Uložit osobu</button>
             </div>
 
