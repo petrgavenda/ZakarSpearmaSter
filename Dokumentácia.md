@@ -16,6 +16,7 @@ Projekt je webová aplikace postavená na frameworku **CodeIgniter 4**. Slouží
 | Dokumentace | 2% | 0% | 98% |
 | Github | 80% | 20% | 0% |
 | Romská menšina | 21% | 80% | -1% |
+| Migrace | 0,01% | 96% | 3,99% |
 
 ## 2. Použité externí nástroje a knihovny
 
