@@ -2,9 +2,18 @@
 
 # Dokumentace projektu ZakarSpearmaSter
 
-## 1. Popis projektu
+## 1. Popis projektu a rozdělení práce
 
 Projekt je webová aplikace postavená na frameworku **CodeIgniter 4**. Slouží pro evidenci lidí, webových stránek a nalezených hesel včetně jejich hashů. Aplikace obsahuje přehledy, filtrování, statistiky a správu záznamů.
+
+| Práce | Gavenda | Formánek | AI |
+| Struktura databáze | 100% | 0% | 0% |
+| Názvologie | 95% | 5% | 0% |
+| Web | -1% | 89% | 12% |
+| Obsah databáze | 45% | 40% | 15% |
+| Programátorská kvalita | -5% | 20% | 85% |
+| Dokumentace | 2% | 0% | 98% |
+| Github | 80% | 20% | 0% |
 
 ---
 
